@@ -8,6 +8,6 @@ This repository is used to build a practical understanding of the **Universal Ve
 
 The examples and exercises in this repository are based primarily on:
 
-***ASIC/SoC Functional Design Verification***
+***ASIC/SoC Functional Design Verification*** Book By **Ashok B. Mehta**
 
 The implementations are written as learning exercises to reinforce the concepts presented in the book.
