@@ -1,11 +1,11 @@
 `ifndef BUS_DRIVER_SV
 `define BUS_DRIVER_SV 
 
-class bus_driver extends uvm_driver #(bus_seq_item); // respond will get the same type as request (bus_seq_item).
+class bus_driver extends uvm_driver #(bus_seq_item); // response will get the same type as request (bus_seq_item).
   bus_seq_item   drv_tx;  // sequence item that we will receive from the sequencer
   virtual dut_if vif;  // interface to interact with the dut pins.
 
-  `uvm_component_utils("bus_driver");  // Register in the factory.
+  `uvm_component_utils(bus_driver)  // Register in the factory.
 
   // constructor
   function new(string name = "bus_driver", uvm_component parent);
