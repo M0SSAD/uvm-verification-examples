@@ -9,6 +9,7 @@ package uvm_package;
   `include "bus_driver.sv"  
   `include "bus_sequencer.sv"
   `include "bus_monitor.sv"
+  `include "bus_agent.sv"
 endpackage
 
 `endif
