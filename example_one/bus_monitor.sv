@@ -15,7 +15,7 @@ class bus_monitor extends uvm_monitor;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        if(!uvm_config_db #(virtual dut_if)::get(this, "", "vif", vif)) begin
+        if(!uvm_config_db #(virtual dut_if)::get(this, "", "dut_if", vif)) begin
             `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"})
         end
     endfunction
