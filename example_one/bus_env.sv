@@ -2,8 +2,9 @@
 `define BUS_ENV_SV
 
 class bus_env extends uvm_env;
-    int num_agents;
+    int num_agents = 1; // default to 1
     bus_agent agents[]; // dynamic array of agents.
+    bus_scoreboard scoreboard;
 
     // register the component in the factory and the num_agents as a UVM_field
     `uvm_component_utils_begin(bus_env)
@@ -25,11 +26,16 @@ class bus_env extends uvm_env;
             $sformat(inst_name, "agents[%0d]", i);
             agents[i] = bus_agent::type_id::create(inst_name, this);
         end
+        scoreboard = bus_scoreboard::type_id::create("scoreboard", this);
     endfunction
 
     function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-        // ToDo - when the scoreboard is done to connect it to the monito's analysis port.
+        // Connect each monitor's analysis port to the scoreboard FIFO.
+        // All monitored transactions are therefore published to the scoreboard for checking.
+        for(int i = 0; i < num_agents; i++) begin
+            agents[i].b_mon.analysis_port.connect(scoreboard.fifo.analysis_export); // connect all the agents to the fifo.
+        end
     endfunction
 
 
