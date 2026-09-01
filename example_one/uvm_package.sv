@@ -6,7 +6,9 @@ package uvm_package;
 
   `include "uvm_macros.svh"
   `include "bus_seq_item.sv"
-  `include "bus_driver.sv"
+  `include "bus_driver.sv"  
+  `include "bus_sequencer.sv"
+  `include "bus_monitor.sv"
 endpackage
 
 `endif

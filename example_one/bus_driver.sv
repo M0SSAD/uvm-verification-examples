@@ -18,7 +18,7 @@ class bus_driver extends uvm_driver #(bus_seq_item); // response will get the sa
     // get the interface from the db.
     if (!uvm_config_db#(virtual dut_if)::get(this, "", "vif", vif)) begin
       `uvm_fatal("NOVIF", {"virtual interface must be set for: ", get_full_name(), ".vif"
-                 });  // if the interface wasn't found, output an error.
+                 })  // if the interface wasn't found, output an error.
     end
   endfunction
 
